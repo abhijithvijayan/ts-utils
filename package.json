@@ -1,6 +1,6 @@
 {
 	"name": "@abhijithvijayan/ts-utils",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Collection of JavaScript utility functions",
 	"license": "MIT",
 	"repository": "https://github.com/abhijithvijayan/ts-utils.git",
