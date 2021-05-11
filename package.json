@@ -12,9 +12,9 @@
 	"engines": {
 		"node": ">=10.0.0"
 	},
-	"main": "lib/cjs/index.js",
-	"module": "lib/esm/index.js",
-	"types": "lib/cjs/index.d.ts",
+	"main": "lib/cjs/source/index.js",
+	"module": "lib/esm/source/index.js",
+	"types": "lib/cjs/source/index.d.ts",
 	"files": [
 		"lib"
 	],
