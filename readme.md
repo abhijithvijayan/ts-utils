@@ -40,6 +40,7 @@
 - [API](#api)
 - [Issues](#issues)
   - [🐛 Bugs](#-bugs)
+- [Credits](#credits)
 - [LICENSE](#license)
 
 ## Installation
@@ -185,6 +186,9 @@ Please file an issue [here](https://github.com/abhijithvijayan/ts-utils/issues/n
 
 - Shared Eslint & Prettier Configuration - [`@abhijithvijayan/eslint-config`](https://www.npmjs.com/package/@abhijithvijayan/eslint-config)
 - Shared TypeScript Configuration - [`@abhijithvijayan/tsconfig`](https://www.npmjs.com/package/@abhijithvijayan/tsconfig)
+
+## Credits
+Some utils are inherited from https://www.30secondsofcode.org/js/p/1
 
 ## License
 
