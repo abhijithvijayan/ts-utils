@@ -1,6 +1,6 @@
 import {capitalize} from '../source';
 
-describe('capitalize tests', () => {
+describe('capitalize() tests', () => {
   it('should return empty string for undefined', () => {
     expect(capitalize(undefined)).toEqual('');
   });
