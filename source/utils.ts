@@ -40,7 +40,7 @@ export function isNullOrUndefined<T>(
  *  @returns true if value is number, false otherwise
  */
 export function isNumber<T>(value: T | number): value is number {
-  return typeof value === 'number' && value === value; // safeguard against NaN, as Nan is the only value not equal to itself
+  return typeof value === 'number' && Number.isFinite(value);
 }
 
 /**
