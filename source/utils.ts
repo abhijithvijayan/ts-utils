@@ -400,3 +400,10 @@ export function objectToQueryString(
       }, '')
     : '';
 }
+
+/**
+ *  Determines if the current runtime environment is a browser
+ */
+export function isBrowser(): boolean {
+  return ![typeof window, typeof document].includes('undefined');
+}

@@ -35,4 +35,5 @@ export {
   throttle,
   sleep,
   objectToQueryString,
+  isBrowser,
 } from './utils';
