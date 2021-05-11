@@ -198,6 +198,11 @@ export function size<T>(value: T | any): number {
   }
 
   if (isString(value)) {
+    if (!isBrowser()) {
+      // Using Buffer API for Node.js
+      return Buffer.from(value).length;
+    }
+
     return new Blob([value]).size;
   }
 
