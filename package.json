@@ -1,9 +1,9 @@
 {
-	"name": "node-module-ts-starter",
+	"name": "@abhijithvijayan/ts-utils",
 	"version": "0.1.0",
 	"description": "My awesome module",
 	"license": "MIT",
-	"repository": "https://github.com/abhijithvijayan/node-module-ts-starter.git",
+	"repository": "https://github.com/abhijithvijayan/ts-utils.git",
 	"author": {
 		"name": "abhijithvijayan",
 		"email": "email@abhijithvijayan.in",
