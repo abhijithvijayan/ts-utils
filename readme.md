@@ -14,7 +14,7 @@
   <a href="https://github.com/abhijithvijayan/ts-utils/blob/main/license">
     <img src="https://img.shields.io/github/license/abhijithvijayan/ts-utils.svg" alt="LICENSE" />
   </a>
-  <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40abhijithvijayan%2Fts-utils%21%20by%20%40_abhijithv%0A%0ACollection%20of%20JavaScript%20utility%20functions%0Ahttps%3A%2F%2Fgithub.com%2Fabhijithvijayan%2F%40abhijithvijayan%2Fts-utils%0A%0A%23node%20%23javascript%20%23typescript%20%23utils%20%23npm">
+  <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40abhijithvijayan%2Fts-utils%21%20by%20%40_abhijithv%0A%0ACollection%20of%20JavaScript%20utility%20functions%0Ahttps%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fts-utils%0A%0A%23node%20%23javascript%20%23typescript%20%23utils%20%23npm">
      <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="TWEET" />
   </a>
 </div>
@@ -31,7 +31,7 @@
 </p>
 <hr />
 
-❤️ it? ⭐️ it on [GitHub](https://github.com/abhijithvijayan/ts-utils/stargazers) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20%40abhijithvijayan%2Fts-utils%21%20by%20%40_abhijithv%0A%0ACollection%20of%20JavaScript%20utility%20functions%0Ahttps%3A%2F%2Fgithub.com%2Fabhijithvijayan%2F%40abhijithvijayan%2Fts-utils%0A%0A%23node%20%23javascript%20%23typescript%20%23utils%20%23npm) about it.
+❤️ it? ⭐️ it on [GitHub](https://github.com/abhijithvijayan/ts-utils/stargazers) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20%40abhijithvijayan%2Fts-utils%21%20by%20%40_abhijithv%0A%0ACollection%20of%20JavaScript%20utility%20functions%0Ahttps%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fts-utils%0A%0A%23node%20%23javascript%20%23typescript%20%23utils%20%23npm) about it.
 
 ## Table of Contents
 
