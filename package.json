@@ -1,7 +1,7 @@
 {
 	"name": "@abhijithvijayan/ts-utils",
 	"version": "0.1.0",
-	"description": "My awesome module",
+	"description": "Collection of JavaScript utility functions",
 	"license": "MIT",
 	"repository": "https://github.com/abhijithvijayan/ts-utils.git",
 	"author": {
