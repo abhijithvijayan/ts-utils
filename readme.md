@@ -160,7 +160,7 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
    ```
 - `throttle(fn, wait)`: Creates a throttled function that only invokes `fn` at most once per `wait` milliseconds
 	- `wait`: Time in milliseconds `Default: 100`
-	- `sleep(ms)`: Delays the execution of an asynchronous function
+- `sleep(ms)`: Delays the execution of an asynchronous function
 	- `ms`: Time in milliseconds `Default: 100`
   ```js
   async function sleepyWork() {
