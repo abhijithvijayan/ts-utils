@@ -334,7 +334,7 @@ export function get(
 export function debounce(fn: AnyFunction, wait = 100): AnyFunction {
   let timer: ReturnType<typeof setTimeout> | null = null;
 
-  return (...args): void => {
+  return function debouncedFunction(this: unknown, ...args: any[]): void {
     // if any timeout is running, cancel it
     if (timer) {
       clearTimeout(timer);
@@ -357,7 +357,7 @@ export function debounce(fn: AnyFunction, wait = 100): AnyFunction {
 export function throttle(fn: AnyFunction, wait = 100): AnyFunction {
   let timer: ReturnType<typeof setTimeout> | null = null;
 
-  return (...args: any[]): void => {
+  return function throttledFunction(this: unknown, ...args: any[]): void {
     // if any timeout is running, skip the current call
     if (timer) {
       return;
