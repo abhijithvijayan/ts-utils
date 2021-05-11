@@ -16,6 +16,9 @@ module.exports = {
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
 
+  // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
+  modulePathIgnorePatterns: ['lib'],
+
   // A preset that is used as a base for Jest's configuration
   preset: 'ts-jest',
 
