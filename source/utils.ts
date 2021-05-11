@@ -184,7 +184,7 @@ export function mask(value: number | string, num = 4, maskWith = '*'): string {
 }
 
 /**
- *  Gets the size of an array, object or string
+ *  Gets the size of an array, object, set or string
  *
  *  @param value
  */

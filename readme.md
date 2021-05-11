@@ -80,9 +80,10 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
 	- isEmpty(true); // true - type is not considered a collection
 
 
-- `size(value)`: Gets the size of an array, object or string
+- `size(value)`: Gets the size of an array, object, set or string
 	- size([1, 2, 3, 4, 5]); // 5
 	- size("size"); // 4
+	- size(new Set([1, 2, 3])); // 3
 	- size({ one: 1, two: 2, three: 3 }); // 3
 - `splitArrayIntoChunks(arr, size)`: Splits array into chunks of arrays, Returns `array`
 	- splitArrayIntoChunks([0, 1, 2, 3, 4], 2); // [[0, 1], [2, 3], [4]]
