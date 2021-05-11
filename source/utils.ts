@@ -97,7 +97,11 @@ export function removeDuplicatesFromString(str: string): string {
  *
  *  eg: capitalize("fooBar", true); // 'Foobar'
  */
-export function capitalize(str = '', lowerRest = false): string {
+export function capitalize(str?: string | null, lowerRest = false): string {
+  if (isNullOrUndefined(str)) {
+    return '';
+  }
+
   return (
     str.slice(0, 1).toUpperCase() +
     (lowerRest ? str.slice(1).toLowerCase() : str.slice(1))
