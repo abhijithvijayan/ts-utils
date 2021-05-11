@@ -13,6 +13,7 @@
 	  	"no-self-compare": "warn",
 	    "no-param-reassign": "warn",
 	    "@typescript-eslint/no-use-before-define": "warn",
+	    "@typescript-eslint/no-explicit-any": "warn",
 		"node/no-unsupported-features/es-syntax": ["error", {
 			"ignores": ["modules"]
 		}]
