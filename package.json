@@ -1,6 +1,6 @@
 {
 	"name": "@abhijithvijayan/ts-utils",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Collection of JavaScript utility functions",
 	"license": "MIT",
 	"repository": "https://github.com/abhijithvijayan/ts-utils.git",
@@ -24,7 +24,7 @@
 		"build:esm": "tsc --module esnext --outDir lib/esm",
 		"build": "rimraf lib && yarn build:cjs && yarn build:esm",
 		"pack:list": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
-		"prepublishOnly": "yarn build",
+		"prepublishOnly": "yarn test && yarn build",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"lint": "eslint . --ext .ts",
