@@ -9,6 +9,8 @@
 		]
     },
 	"include": [
-		"source"
+	  "source",
+	  "tests",
+	  "jest.config.js"
 	]
 }
