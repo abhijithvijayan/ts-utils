@@ -10,6 +10,9 @@
 	"rules": {
 		"no-console": "off",
 		"node/shebang": "off",
+	  	"no-self-compare": "warn",
+	    "no-param-reassign": "warn",
+	    "@typescript-eslint/no-use-before-define": "warn",
 		"node/no-unsupported-features/es-syntax": ["error", {
 			"ignores": ["modules"]
 		}]
