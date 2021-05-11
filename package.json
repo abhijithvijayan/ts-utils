@@ -35,7 +35,7 @@
 	},
 	"lint-staged": {
 		"*.ts": [
-			"yarn run lint:fix"
+			"eslint . --ext .ts"
 		]
 	},
 	"keywords": [
