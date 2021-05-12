@@ -135,6 +135,10 @@ export function toCamelCase(str: string): string {
 
 /**
  *  Generates a random string
+ *
+ *  This algorithm has the following weaknesses:
+ *  - It will generate anywhere between 0 and 9 characters due to the fact
+ *    that trailing zeros get removed when stringify-ing floating points
  */
 export function randomString(): string {
   return Math.random().toString(36).substr(2, 9);
