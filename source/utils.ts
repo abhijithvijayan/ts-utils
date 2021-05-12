@@ -1,4 +1,4 @@
-export type AnyFunction = (...args: unknown[]) => unknown;
+export type AnyFunction = (...args: any[]) => any;
 export type AnyObject = Record<string, unknown>;
 
 /**
