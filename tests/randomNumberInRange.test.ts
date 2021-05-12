@@ -6,7 +6,7 @@ describe('Tests for randomNumberInRange()', () => {
     const max = 20;
     const rand = randomNumberInRange(min, max);
 
-    expect(rand).toBeGreaterThan(min);
+    expect(rand).toBeGreaterThanOrEqual(min);
     expect(rand).toBeLessThan(max);
   });
 });

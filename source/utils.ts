@@ -145,7 +145,7 @@ export function randomString(): string {
 }
 
 /**
- *  Returns a random number in the specified range
+ *  Returns a random number between min (inclusive) and max (exclusive)
  *
  *  @param min
  *  @param max
@@ -155,7 +155,7 @@ export function randomNumberInRange(min: number, max: number): number {
 }
 
 /**
- *  Returns a random integer in the specified range
+ *  Returns a random integer between min (inclusive) and max (inclusive)
  *
  *  @param min
  *  @param max

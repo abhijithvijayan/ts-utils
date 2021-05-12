@@ -104,9 +104,9 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
 
 
 - `randomString()`: Generates a random `string`
-- `randomNumberInRange(min, max)`: Returns a random `number` in the specified range
+- `randomNumberInRange(min, max)`: Returns a random number between min (inclusive) and max (exclusive)
 	- randomNumberInRange(10, 15); // 12.257101242652775
-- `randomIntegerInRange(min, max`: Returns a random `integer` in the specified range
+- `randomIntegerInRange(min, max`: Returns a random `integer` between min (inclusive) and max (inclusive)
 	- randomIntegerInRange(10, 20); // 16
 - `round(num, decimals)`: Rounds a number to a specified amount of digits
 	- round(1.005, 2); // 1.01

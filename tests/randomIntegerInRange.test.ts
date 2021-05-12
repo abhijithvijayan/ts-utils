@@ -7,6 +7,6 @@ describe('Tests for randomIntegerInRange()', () => {
     const rand = randomIntegerInRange(min, max);
 
     expect(rand).toBeGreaterThanOrEqual(min);
-    expect(rand).toBeLessThan(max);
+    expect(rand).toBeLessThanOrEqual(max);
   });
 });
