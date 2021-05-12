@@ -121,7 +121,7 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
 	- fillArray(3, {}); // [{}, {}, {}]
 - `unique(arr)`: Returns all unique values in an array
 	- unique([1, 2, 2, 3, 4, 4, 5]); // [1, 2, 3, 4, 5]
-- `take(arr)`: Returns an array with n elements removed from the beginning
+- `take(arr)`: Returns an array with n elements taken from the beginning
 	- take([1, 2, 3], 5); // [1, 2, 3]
 	- take([1, 2, 3], 0); // []
 - `last(arr)`: Returns the last element in an array

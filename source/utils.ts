@@ -237,7 +237,7 @@ export function unique<T>(arr: T[]): T[] {
 }
 
 /**
- *  Returns an array with n elements removed from the beginning
+ *  Returns an array with n elements taken from the beginning
  *
  *  @param arr
  *  @param n
