@@ -78,7 +78,11 @@ export function isEmpty<T>(value: T): boolean {
  *
  *  @param str
  */
-export function removeWhitespaces(str: string): string {
+export function removeWhitespaces(str?: string | null): string {
+  if (isNullOrUndefined(str)) {
+    return '';
+  }
+
   return str.replace(/\s/g, '');
 }
 
