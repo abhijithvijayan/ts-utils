@@ -401,6 +401,44 @@ export function sleep(ms = 100): Promise<void> {
 }
 
 /**
+ *  Performs encoding and serialization of object
+ *
+ *  @param params
+ *  @param prefix
+ */
+function serialize(params: AnyObject, prefix?: string): string[] {
+  return Object.entries(params).reduce<string[]>((acc, [key, value]) => {
+    // remove whitespace from both sides of the key before encoding
+    key = encodeURIComponent(key.trim());
+
+    if (params.constructor === Array) {
+      key = `${prefix}[]`;
+    } else if (params.constructor === Object) {
+      key = !prefix ? key : `${prefix}[${key}]`;
+    }
+
+    /**
+     *  - undefined and NaN values will be skipped automatically
+     *  - value will be empty string for functions and null
+     *  - nested arrays will be flattened
+     */
+    if (isNull(value) || isFunction(value)) {
+      acc.push(`${key}=`);
+    } else if (typeof value === 'object') {
+      acc = acc.concat(serialize(value, key));
+    } else if (
+      isNumber(value) || // this eliminates NaN
+      isString(value) ||
+      typeof value === 'boolean'
+    ) {
+      acc.push(`${key}=${encodeURIComponent(value)}`);
+    }
+
+    return acc;
+  }, []);
+}
+
+/**
  *  Returns a query string generated from the key-value pairs of the given object
  *
  *  @param queryParameters
@@ -408,16 +446,7 @@ export function sleep(ms = 100): Promise<void> {
 export function objectToQueryParams(
   queryParameters?: AnyObject | null
 ): string {
-  return queryParameters
-    ? Object.entries(queryParameters).reduce<string>((acc, [key, value]) => {
-        const symbol = acc.length === 0 ? '?' : '&';
-        acc += value
-          ? `${symbol}${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-          : '';
-
-        return acc;
-      }, '')
-    : '';
+  return queryParameters ? serialize(queryParameters).join('&') : '';
 }
 
 /**

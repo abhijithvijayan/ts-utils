@@ -170,7 +170,36 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
   }
   ```
 - `objectToQueryParams(queryParams)`: Returns a query string generated from the key-value pairs of the given object
-	- objectToQueryParams({ page: "1", size: "2kg", key: undefined }); // 'page=1&size=2kg'
+	- Note:
+		- `undefined` and `NaN` values(nested) will be skipped automatically
+		- value will be `empty string` for `functions` and `null`
+		- `nested arrays` will be flattened
+	- objectToQueryParams(undefined); // ""
+	- objectToQueryParams(null); // ""
+	- objectToQueryParams({}); // ""
+	- objectToQueryParams({ page: "1", limit: "10", key: undefined }); // 'page=1&limit=10'
+	- With a complex object that has nested values
+	  ```js
+	  objectToQueryParams({
+		  foo: 'hello world', // resolves to [ "foo", "hello world" ]
+		  bar: {
+			  blah: 123, // resolves to [ "bar[blah]", "123" ]
+			  list: [1, 2, 3], // resolves to [ "bar[list][]", "1" ], [ "bar[list][]", "2" ], [ "bar[list][]", "3" ]
+			  'nested array': [[4,5],[6,7]] // resolves to [ "bar[nested array][][]", "4" ], [ "bar[nested array][][]", "5" ], [ "bar[nested array][][]", "6" ], [ "bar[nested array][][]", "7" ]
+		  },
+		  page: 1, // resolves to [ "page", "1" ]
+		  limit: undefined, // ignored
+		  check: false, // resolves to [ "check", "false" ]
+		  max: NaN, // ignored
+		  prop: null, // resolves to [ "prop", "" ]
+		  ' key value': 'with spaces' // resolves to [ "key value", "with spaces" ]
+	  }); // foo=hello%20world&bar[blah]=123&bar[list][]=1&bar[list][]=2&bar[list][]=3&bar[nested%20array][][]=4&bar[nested%20array][][]=5&bar[nested%20array][][]=6&bar[nested%20array][][]=7&page=1&check=false&prop=&key%20value=with%20spaces
+
+	  let params = new URLSearchParams(window.location.search);
+	  for (const param of p) {
+		  console.log(param); // [ "foo", "hello world" ], [ "bar[blah]", "123" ], ...
+	  }
+	  ```
 - `isBrowser()`: Determines if the current runtime environment is a browser
 
 ## Issues
