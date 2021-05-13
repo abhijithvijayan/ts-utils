@@ -87,13 +87,6 @@ export function removeWhitespaces(str?: string | null): string {
 }
 
 /**
- *  Removes all duplicate words from string
- */
-export function removeDuplicatesFromString(str: string): string {
-  return unique(str.split(' ')).join(' ');
-}
-
-/**
  *  Capitalizes the first letter of a string
  *
  *  @param str

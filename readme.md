@@ -90,8 +90,6 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
 	- splitArrayIntoChunks([0, 1, 2, 3, 4], 4); // [[0, 1, 2, 3], [4]]
 - `removeWhitespaces(value)`: Remove all whitespaces from a `string`
 	- removeWhitespaces("-- hello - world --"); // "--hello-world--"
-- `removeDuplicatesFromString(value)`: Removes all duplicate words from string
-	- removeDuplicatesFromString("hello world hello world hello world"); // "hello world"
 - `capitalize(value, lowerRest)`: Capitalizes the first letter of a `string`
 	- `lowerRest`, if `true`, lower-cases the rest of the string, `Default: false`
 	- capitalize("fooBar"); // 'FooBar'

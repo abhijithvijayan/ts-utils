@@ -16,7 +16,6 @@ export {
   size,
   splitArrayIntoChunks,
   removeWhitespaces,
-  removeDuplicatesFromString,
   capitalize,
   toCamelCase,
   randomString,
