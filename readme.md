@@ -146,6 +146,8 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
    get(obj, "selector.to1.val", null); // null
    get(obj, "target.2.a"); // "test"
    get(obj, "selector.to1.val"); // undefined
+   get(obj, "selector[to][val]"); // "val to select"
+   get(obj, "target.2.[a]"); // "test"
   ```
 
 - `debounce(fn, wait)`: Creates a debounced function that delays invoking func until after wait milliseconds have elapsed since the last time the debounced function was invoked

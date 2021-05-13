@@ -317,11 +317,11 @@ export function pipe(...fns: AnyFunction[]): AnyFunction {
  *
  *  eg: get(obj, "selector.to.1.val", null); // null
  */
-export function get(
-  from: AnyObject,
-  selector: string,
-  defaultValue: unknown = undefined
-): unknown {
+export function get<T, P extends T>(
+  from?: AnyObject,
+  selector = '',
+  defaultValue: P | undefined = undefined
+): T | P | undefined {
   return (
     selector
       .replace(/\[([^[\]]*)]/g, '.$1.')
