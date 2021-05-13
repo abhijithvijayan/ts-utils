@@ -169,8 +169,8 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
    console.log("I woke up after 1 second.");
   }
   ```
-- `objectToQueryString(queryParams)`: Returns a query string generated from the key-value pairs of the given object
-	- objectToQueryString({ page: "1", size: "2kg", key: undefined }); // '?page=1&size=2kg'
+- `objectToQueryParams(queryParams)`: Returns a query string generated from the key-value pairs of the given object
+	- objectToQueryParams({ page: "1", size: "2kg", key: undefined }); // 'page=1&size=2kg'
 - `isBrowser()`: Determines if the current runtime environment is a browser
 
 ## Issues

@@ -1,5 +1,5 @@
 export type AnyFunction = (...args: any[]) => any;
-export type AnyObject = Record<string, unknown>;
+export type AnyObject = Record<string, any>;
 
 /**
  *  Checks if the passed value is null
@@ -405,8 +405,8 @@ export function sleep(ms = 100): Promise<void> {
  *
  *  @param queryParameters
  */
-export function objectToQueryString(
-  queryParameters: AnyObject | undefined | null
+export function objectToQueryParams(
+  queryParameters?: AnyObject | null
 ): string {
   return queryParameters
     ? Object.entries(queryParameters).reduce<string>((acc, [key, value]) => {

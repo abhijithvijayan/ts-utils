@@ -34,6 +34,6 @@ export {
   debounce,
   throttle,
   sleep,
-  objectToQueryString,
+  objectToQueryParams,
   isBrowser,
 } from './utils';
