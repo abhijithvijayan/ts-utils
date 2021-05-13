@@ -411,7 +411,9 @@ export function objectToQueryParams(
   return queryParameters
     ? Object.entries(queryParameters).reduce<string>((acc, [key, value]) => {
         const symbol = acc.length === 0 ? '?' : '&';
-        acc += value ? `${symbol}${key}=${value}` : '';
+        acc += value
+          ? `${symbol}${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+          : '';
 
         return acc;
       }, '')
