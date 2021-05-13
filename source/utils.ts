@@ -318,7 +318,7 @@ export function pipe(...fns: AnyFunction[]): AnyFunction {
  *  eg: get(obj, "selector.to.1.val", null); // null
  */
 export function get<T, P = undefined>(
-  from?: AnyObject,
+  from: T,
   selector = '',
   defaultValue: P | undefined = undefined
 ): T | P | undefined {
