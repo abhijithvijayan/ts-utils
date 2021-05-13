@@ -21,6 +21,24 @@ describe('get tests', () => {
     });
   });
 
+  it('should return undefined for undefined', () => {
+    expect(get(undefined, 'something')).toEqual(undefined);
+  });
+
+  it('should return the object itself', () => {
+    const state = get({
+      test: {
+        testing: 4,
+      },
+    });
+
+    return expect(state).toEqual({
+      test: {
+        testing: 4,
+      },
+    });
+  });
+
   it('should return undefined from non-existent path', () => {
     const state = get(
       {
@@ -55,6 +73,30 @@ describe('get tests', () => {
         target: [1, 2, {a: 'test'}],
       },
       'target.2.a'
+    );
+
+    return expect(state).toEqual('test');
+  });
+
+  it('should return value through key indexing(1)', () => {
+    const state = get(
+      {
+        selector: {to: {val: 'val to select'}},
+        target: [1, 2, {a: 'test'}],
+      },
+      'selector[to][val]'
+    );
+
+    return expect(state).toEqual('val to select');
+  });
+
+  it('should return value through key indexing(2)', () => {
+    const state = get(
+      {
+        selector: {to: {val: 'val to select'}},
+        target: [1, 2, {a: 'test'}],
+      },
+      'target.2.[a]'
     );
 
     return expect(state).toEqual('test');
