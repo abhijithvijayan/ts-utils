@@ -321,7 +321,7 @@ export function get<T, P = undefined>(
   from: T,
   selector = '',
   defaultValue: P | undefined = undefined
-): T | P | undefined {
+): P {
   return (
     selector
       .replace(/\[([^[\]]*)]/g, '.$1.')
