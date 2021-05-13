@@ -317,7 +317,7 @@ export function pipe(...fns: AnyFunction[]): AnyFunction {
  *
  *  eg: get(obj, "selector.to.1.val", null); // null
  */
-export function get<T, P extends T>(
+export function get<T, P = undefined>(
   from?: AnyObject,
   selector = '',
   defaultValue: P | undefined = undefined
