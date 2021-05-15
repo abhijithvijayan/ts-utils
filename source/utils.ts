@@ -70,7 +70,7 @@ export function isFunction<T>(value: T | Function): value is Function {
  *  @param value
  */
 export function isEmpty<T>(value: T): boolean {
-  return isNull(value) || !(Object.keys(value) || value).length;
+  return isNullOrUndefined(value) || !(Object.keys(value) || value).length;
 }
 
 /**

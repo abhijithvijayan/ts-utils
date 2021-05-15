@@ -1,6 +1,14 @@
 import {isEmpty} from '../source';
 
 describe('Tests for isEmpty()', () => {
+  it('should return true for undefined', () => {
+    expect(isEmpty(undefined)).toEqual(true);
+  });
+
+  it('should return true for null', () => {
+    expect(isEmpty(null)).toEqual(true);
+  });
+
   it('should return true for empty array', () => {
     expect(isEmpty([])).toEqual(true);
   });
