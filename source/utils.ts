@@ -90,10 +90,10 @@ export function isEmpty<T>(value: T): boolean {
  */
 export function removeWhitespaces(str?: string | NullOrUndefined): string {
   if (isNullOrUndefined(str)) {
-    return '';
+    return EMPTY_STRING;
   }
 
-  return str.replace(/\s/g, '');
+  return str.replace(/\s/g, EMPTY_STRING);
 }
 
 /**
@@ -109,7 +109,7 @@ export function capitalize(
   lowerRest = false
 ): string {
   if (isNullOrUndefined(str)) {
-    return '';
+    return EMPTY_STRING;
   }
 
   return (
@@ -134,7 +134,7 @@ export function toCamelCase(str: string): string {
       ?.map(
         (x: string) => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase()
       )
-      ?.join('') ?? '';
+      ?.join(EMPTY_STRING) ?? EMPTY_STRING;
 
   return s.slice(0, 1).toLowerCase() + s.slice(1);
 }
@@ -340,14 +340,14 @@ export function pipe(...fns: AnyFunction[]): AnyFunction {
  */
 export function get<T, P = undefined>(
   from: T,
-  selector = '',
+  selector = EMPTY_STRING,
   defaultValue: P | undefined = undefined
 ): P {
   return (
     selector
       .replace(/\[([^[\]]*)]/g, '.$1.')
       .split('.')
-      .filter((t) => t !== '')
+      .filter((t) => t !== EMPTY_STRING)
       .reduce<any>((prev, curr) => prev && prev[curr], from) || defaultValue
   );
 }
@@ -460,7 +460,7 @@ function serialize(params: AnyObject, prefix?: string): string[] {
 export function objectToQueryParams(
   queryParameters?: AnyObject | null
 ): string {
-  return queryParameters ? serialize(queryParameters).join('&') : '';
+  return queryParameters ? serialize(queryParameters).join('&') : EMPTY_STRING;
 }
 
 /**
@@ -478,7 +478,7 @@ export function isBrowser(): boolean {
  *  @return string
  */
 const formatRegexToString = (regex: RegExp): string => {
-  return new RegExp(regex, '').toString().slice(1, -1);
+  return new RegExp(regex, EMPTY_STRING).toString().slice(1, -1);
 };
 
 /**
