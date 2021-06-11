@@ -101,7 +101,7 @@ export function removeWhitespaces(str: string | NullOrUndefined): string {
  *  eg: capitalize("fooBar", true); // 'Foobar'
  */
 export function capitalize(
-  str?: string | NullOrUndefined,
+  str: string | NullOrUndefined,
   lowerRest = false
 ): string {
   const validStr = str ?? EMPTY_STRING;
@@ -119,7 +119,7 @@ export function capitalize(
  *
  *  eg: toCamelCase("some-javascript-property"); // 'someJavascriptProperty'
  */
-export function toCamelCase(str?: string | NullOrUndefined): string {
+export function toCamelCase(str: string | NullOrUndefined): string {
   const s =
     (str ?? EMPTY_STRING)
       .match(
