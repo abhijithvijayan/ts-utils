@@ -458,7 +458,7 @@ function serialize(params: AnyObject, prefix?: string): string[] {
  *  @param queryParameters
  */
 export function objectToQueryParams(
-  queryParameters?: AnyObject | null
+  queryParameters: AnyObject | NullOrUndefined
 ): string {
   return queryParameters ? serialize(queryParameters).join('&') : EMPTY_STRING;
 }

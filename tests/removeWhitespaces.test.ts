@@ -1,16 +1,17 @@
 import {removeWhitespaces} from '../source';
+import {EMPTY_STRING} from '../source/utils';
 
 describe('Tests for removeWhitespaces()', () => {
   it('should return empty string for undefined', () => {
-    expect(removeWhitespaces(undefined)).toEqual('');
+    expect(removeWhitespaces(undefined)).toEqual(EMPTY_STRING);
   });
 
   it('should return empty string for null', () => {
-    expect(removeWhitespaces(null)).toEqual('');
+    expect(removeWhitespaces(null)).toEqual(EMPTY_STRING);
   });
 
   it('should return empty string', () => {
-    expect(removeWhitespaces(' ')).toEqual('');
+    expect(removeWhitespaces(' ')).toEqual(EMPTY_STRING);
   });
 
   it('should return string without white-spaces', () => {
