@@ -176,8 +176,17 @@ export function randomIntegerInRange(min: number, max: number): number {
  *  @param num
  *  @param decimals
  */
-export function round(num: number, decimals = 0): number {
-  return Number(`${Math.round(Number(`${num}e${decimals}`))}e-${decimals}`);
+export function round(
+  num: number | NullOrUndefined,
+  decimals?: number | NullOrUndefined
+): number {
+  if (!isNumber(num)) {
+    return -1;
+  }
+
+  const limit = decimals ?? 0;
+
+  return Number(`${Math.round(Number(`${num}e${limit}`))}e-${limit}`);
 }
 
 /**
