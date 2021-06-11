@@ -236,8 +236,8 @@ export function size<T>(value: T | any): number {
  *  @param len
  *  @param value
  */
-export function fillArray<T>(len: number, value: T | number = 0): T[] {
-  return Array(len).fill(value);
+export function fillArray<T>(len: number | NullOrUndefined, value?: T): T[] {
+  return Array(len ?? 0).fill(value);
 }
 
 /**
