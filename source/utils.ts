@@ -255,7 +255,11 @@ export function unique<T>(arr: T[]): T[] {
  *  @param arr
  *  @param n
  */
-export function take<T>(arr: T[], n = 1): T[] {
+export function take<T>(arr: T[] | NullOrUndefined, n = 1): T[] {
+  if (!Array.isArray(arr)) {
+    return [];
+  }
+
   return arr.slice(0, n);
 }
 
