@@ -2,6 +2,14 @@ export type AnyFunction = (...args: any[]) => any;
 export type AnyObject = Record<string, any>;
 
 /**
+ *  RFC2822 Validation
+ *
+ *  https://datatracker.ietf.org/doc/html/rfc2822#section-3.4.1
+ */
+export const EMAIL_REGEX =
+  /[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?/;
+
+/**
  *  Checks if the passed value is null
  *
  *  @param value
@@ -447,4 +455,26 @@ export function objectToQueryParams(
  */
 export function isBrowser(): boolean {
   return ![typeof window, typeof document].includes('undefined');
+}
+
+/**
+ *  strips
+ *    - `/` from beginning and end of string
+ *    - all flags from regex
+ *  @param regex
+ *  @return string
+ */
+const formatRegexToString = (regex: RegExp): string => {
+  return new RegExp(regex, '').toString().slice(1, -1);
+};
+
+/**
+ *  Check if Email is Valid
+ *  @param str
+ */
+export function isEmail(str: string): boolean {
+  // https://regex101.com/r/857lzc/1/
+  const re = new RegExp(`^(${formatRegexToString(EMAIL_REGEX)})$`);
+
+  return re.test(str);
 }
