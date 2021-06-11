@@ -28,4 +28,36 @@ describe('Tests for fillArray()', () => {
   it('should return empty array', () => {
     expect(fillArray(0)).toEqual([]);
   });
+
+  it('should return filled array with value from passed object', () => {
+    expect(fillArray({length: 2, value: 'test'})).toEqual(['test', 'test']);
+  });
+
+  it('should return filled array with index as value', () => {
+    expect(fillArray({length: 5, fillIndex: true})).toEqual([0, 1, 2, 3, 4]);
+  });
+
+  it('should return empty array', () => {
+    expect(fillArray({length: undefined})).toEqual([]);
+  });
+
+  it('should return filled array with using object prop', () => {
+    expect(fillArray({length: 2})).toEqual([undefined, undefined]);
+  });
+
+  it('should return empty array', () => {
+    expect(fillArray({length: null, fillIndex: true})).toEqual([]);
+  });
+
+  it('should return filled array with null values', () => {
+    expect(
+      fillArray({length: 2, fillIndex: false, value: null}, 'world')
+    ).toEqual([null, null]);
+  });
+
+  it('should return filled array', () => {
+    expect(
+      fillArray({length: 1, fillIndex: false, value: 'hello'}, 'there')
+    ).toEqual(['hello']);
+  });
 });

@@ -114,9 +114,17 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
 	- mask(1234567890); // '******7890'
 	- mask(1234567890, 3); // '*******890'
 	- mask(1234567890, -4, "$"); // '$$$$567890'
-- `fillArray(length, value)`: Initializes and fills an array with the specified values, Returns an `array`
+- `fillArray(prop, value)`: Initializes and fills an array with the specified values, Returns an `array`
+	- `prop`: if `number` is passed, it will be used as the array size
+	- `prop`: can be an object as well
+  		- `length`: array size
+		- `value`: value to fill
+		- `fillIndex`: if `true`, the array will be filled with index value (overrides value field)
 	- fillArray(5, 2); // [2, 2, 2, 2, 2]
 	- fillArray(3, {}); // [{}, {}, {}]
+	- fillArray(1, null); // [null]
+	- fillArray({length: 2, value: 'test'}); // ['test', 'test']
+	- fillArray({length: 5, fillIndex: true}); // [0, 1, 2, 3, 4]
 - `unique(arr)`: Returns all unique values in an array
 	- unique([1, 2, 2, 3, 4, 4, 5]); // [1, 2, 3, 4, 5]
 - `take(arr)`: Returns an array with n elements taken from the beginning

@@ -233,11 +233,44 @@ export function size<T>(value: T | any): number {
 /**
  *  Initializes and fills an array with the specified values
  *
- *  @param len
- *  @param value
+ *  @param prop
+ *  @param val
  */
-export function fillArray<T>(len: number | NullOrUndefined, value?: T): T[] {
-  return Array(len ?? 0).fill(value);
+export function fillArray<T>(
+  prop:
+    | number
+    | NullOrUndefined
+    | {
+        length: number | NullOrUndefined;
+        fillIndex?: boolean;
+        value?: T;
+      },
+  val?: T
+): (T | number)[] {
+  let length: number | NullOrUndefined;
+  let ignoreSecondArg = false;
+  if (isNumber(prop)) {
+    length = prop;
+  } else {
+    const tempLength = get(prop, 'length');
+    if (!isNullOrUndefined(tempLength)) {
+      ignoreSecondArg = true;
+      length = tempLength;
+    }
+
+    length = length ?? 0;
+  }
+
+  const value = !ignoreSecondArg ? val : get(prop, 'value');
+  const fillIndex = get(prop, 'fillIndex') ?? false;
+
+  return Array.from<T, T | number>({length}, (_, index): T | number => {
+    if (fillIndex) {
+      return index;
+    }
+
+    return value as T;
+  });
 }
 
 /**
