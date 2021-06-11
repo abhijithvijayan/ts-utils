@@ -5,6 +5,10 @@ describe('Tests for isNull()', () => {
     expect(isNull(null)).toEqual(true);
   });
 
+  it('should return false with undefined', () => {
+    expect(isNull(undefined)).toEqual(false);
+  });
+
   it('should return false with number', () => {
     expect(isNull(10)).toEqual(false);
   });

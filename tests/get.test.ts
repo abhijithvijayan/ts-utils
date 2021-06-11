@@ -25,6 +25,10 @@ describe('get tests', () => {
     expect(get(undefined, 'something')).toEqual(undefined);
   });
 
+  it('should return undefined for null', () => {
+    expect(get(null, 'something')).toEqual(undefined);
+  });
+
   it('should return the object itself', () => {
     const state = get({
       test: {

@@ -1,6 +1,14 @@
 import {isFunction} from '../source';
 
 describe('Tests for isFunction()', () => {
+  it('should return false for undefined', () => {
+    expect(isFunction(undefined)).toEqual(false);
+  });
+
+  it('should return false for null', () => {
+    expect(isFunction(null)).toEqual(false);
+  });
+
   it('should return true for isFunction', () => {
     expect(isFunction(isFunction)).toEqual(true);
   });

@@ -1,6 +1,7 @@
 export type AnyFunction = (...args: any[]) => any;
 export type NullOrUndefined = null | undefined;
 export type AnyObject = Record<string, any>;
+export const EMPTY_STRING = '';
 
 /**
  *  RFC2822 Validation
@@ -190,7 +191,15 @@ export function round(num: number, decimals = 0): number {
  *    mask(1234567890, 3); // '*******890'
  *    mask(1234567890, -4, "$"); // '$$$$567890'
  */
-export function mask(value: number | string, num = 4, maskWith = '*'): string {
+export function mask(
+  value: number | string | NullOrUndefined,
+  num = 4,
+  maskWith = '*'
+): string {
+  if (isNullOrUndefined(value)) {
+    return EMPTY_STRING;
+  }
+
   const str = String(value);
 
   return str.slice(-num).padStart(str.length, maskWith);

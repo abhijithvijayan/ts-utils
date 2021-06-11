@@ -5,6 +5,10 @@ describe('Tests for size()', () => {
     expect(size(undefined)).toEqual(0);
   });
 
+  it('should return 0 for null', () => {
+    expect(size(null)).toEqual(0);
+  });
+
   it('should return size of array', () => {
     expect(size([1, 2, 3, 4, 5])).toEqual(5);
   });

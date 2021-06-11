@@ -5,6 +5,10 @@ describe('Tests for isUndefined()', () => {
     expect(isUndefined(undefined)).toEqual(true);
   });
 
+  it('should return false with null', () => {
+    expect(isUndefined(null)).toEqual(false);
+  });
+
   it('should return false with number', () => {
     expect(isUndefined(10)).toEqual(false);
   });
