@@ -12,5 +12,8 @@
 	  "source",
 	  "tests",
 	  "jest.config.js"
+	],
+	"exclude": [
+	  "tests/**/*.test.ts"
 	]
 }
