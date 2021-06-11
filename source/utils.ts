@@ -313,7 +313,18 @@ export function flatten(arr: unknown[], depth?: number): unknown[] {
  *  @param arr
  *  @param limit
  */
-export function splitArrayIntoChunks<T>(arr: T[], limit: number): T[][] {
+export function splitArrayIntoChunks<T>(
+  arr: T[] | NullOrUndefined,
+  limit: number | NullOrUndefined
+): T[][] {
+  if (!Array.isArray(arr)) {
+    return [];
+  }
+
+  if (!isNumber(limit)) {
+    return [arr];
+  }
+
   return arr.reduce<T[][]>((acc, _, index: number) => {
     if (index % limit === 0) {
       acc.push(arr.slice(index, index + limit));
