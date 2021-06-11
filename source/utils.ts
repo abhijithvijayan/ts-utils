@@ -1,4 +1,5 @@
 export type AnyFunction = (...args: any[]) => any;
+export type NullOrUndefined = null | undefined;
 export type AnyObject = Record<string, any>;
 
 /**
@@ -36,8 +37,8 @@ export function isUndefined<T>(value: T | undefined): value is undefined {
  *  @returns true if value is null or undefined, false otherwise
  */
 export function isNullOrUndefined<T>(
-  value: T | null | undefined
-): value is null | undefined {
+  value: T | NullOrUndefined
+): value is NullOrUndefined {
   return isUndefined(value) || isNull(value);
 }
 
@@ -86,7 +87,7 @@ export function isEmpty<T>(value: T): boolean {
  *
  *  @param str
  */
-export function removeWhitespaces(str?: string | null): string {
+export function removeWhitespaces(str?: string | NullOrUndefined): string {
   if (isNullOrUndefined(str)) {
     return '';
   }
@@ -102,7 +103,10 @@ export function removeWhitespaces(str?: string | null): string {
  *
  *  eg: capitalize("fooBar", true); // 'Foobar'
  */
-export function capitalize(str?: string | null, lowerRest = false): string {
+export function capitalize(
+  str?: string | NullOrUndefined,
+  lowerRest = false
+): string {
   if (isNullOrUndefined(str)) {
     return '';
   }
