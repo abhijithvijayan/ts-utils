@@ -63,6 +63,9 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
 
 ## API
 
+- `isEmail(value)`: Performs [RFC2822 Validation](https://datatracker.ietf.org/doc/html/rfc2822#section-3.4.1) to email
+  - `isEmail("something@something.com");` // `true`
+  - `isEmail("foo...bar-5@qux.com");` // `false`
 - `isNull(value)`: Returns `true` if value is `null`, `false` otherwise
 - `isUndefined(value)`: Returns `true` if value is `undefined`, `false` otherwise
 - `isNullOrUndefined(value)`: Returns `true` if value is `null` or `undefined`, `false` otherwise
