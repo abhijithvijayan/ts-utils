@@ -1,12 +1,13 @@
 import {capitalize} from '../source';
+import {EMPTY_STRING} from '../source/utils';
 
 describe('Tests for capitalize()', () => {
   it('should return empty string for undefined', () => {
-    expect(capitalize(undefined)).toEqual('');
+    expect(capitalize(undefined)).toEqual(EMPTY_STRING);
   });
 
   it('should return empty string for null', () => {
-    expect(capitalize(null)).toEqual('');
+    expect(capitalize(null)).toEqual(EMPTY_STRING);
   });
 
   it('should capitalize non-capitalized string', () => {
