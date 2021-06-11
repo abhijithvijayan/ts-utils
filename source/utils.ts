@@ -40,7 +40,7 @@ export function isUndefined<T>(value: T | undefined): value is undefined {
 export function isNullOrUndefined<T>(
   value: T | NullOrUndefined
 ): value is NullOrUndefined {
-  return isUndefined(value) || isNull(value);
+  return isNull(value) || isUndefined(value);
 }
 
 /**
@@ -88,12 +88,8 @@ export function isEmpty<T>(value: T): boolean {
  *
  *  @param str
  */
-export function removeWhitespaces(str?: string | NullOrUndefined): string {
-  if (isNullOrUndefined(str)) {
-    return EMPTY_STRING;
-  }
-
-  return str.replace(/\s/g, EMPTY_STRING);
+export function removeWhitespaces(str: string | NullOrUndefined): string {
+  return (str ?? EMPTY_STRING).replace(/\s/g, EMPTY_STRING);
 }
 
 /**
@@ -108,13 +104,11 @@ export function capitalize(
   str?: string | NullOrUndefined,
   lowerRest = false
 ): string {
-  if (isNullOrUndefined(str)) {
-    return EMPTY_STRING;
-  }
+  const validStr = str ?? EMPTY_STRING;
 
   return (
-    str.slice(0, 1).toUpperCase() +
-    (lowerRest ? str.slice(1).toLowerCase() : str.slice(1))
+    validStr.slice(0, 1).toUpperCase() +
+    (lowerRest ? validStr.slice(1).toLowerCase() : validStr.slice(1))
   );
 }
 
@@ -205,11 +199,7 @@ export function mask(
   num = 4,
   maskWith = '*'
 ): string {
-  if (isNullOrUndefined(value)) {
-    return EMPTY_STRING;
-  }
-
-  const str = String(value);
+  const str = String(value ?? EMPTY_STRING);
 
   return str.slice(-num).padStart(str.length, maskWith);
 }
