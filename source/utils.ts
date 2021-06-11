@@ -256,7 +256,7 @@ export function take<T>(arr: T[], n = 1): T[] {
  *
  *  @param arr
  */
-export function last<T>(arr?: T[]): T | undefined {
+export function last<T>(arr: T[] | NullOrUndefined): T | undefined {
   return arr?.[size(arr) - 1];
 }
 

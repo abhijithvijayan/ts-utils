@@ -16,4 +16,8 @@ describe('Tests for last()', () => {
   it('should return undefined for undefined', () => {
     expect(last(undefined)).toEqual(undefined);
   });
+
+  it('should return undefined for null', () => {
+    expect(last(null)).toEqual(undefined);
+  });
 });
