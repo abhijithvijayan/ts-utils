@@ -35,4 +35,5 @@ export {
   sleep,
   objectToQueryParams,
   isBrowser,
+  isEmail,
 } from './utils';

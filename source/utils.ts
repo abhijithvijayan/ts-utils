@@ -476,9 +476,9 @@ const formatRegexToString = (regex: RegExp): string => {
  *  Check if Email is Valid
  *  @param str
  */
-export function isEmail(str: string): boolean {
+export function isEmail(str: string | NullOrUndefined): boolean {
   // https://regex101.com/r/857lzc/1/
   const re = new RegExp(`^(${formatRegexToString(EMAIL_REGEX)})$`);
 
-  return re.test(str);
+  return !!str && re.test(str);
 }
