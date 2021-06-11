@@ -278,7 +278,7 @@ export function fillArray<T>(
  *
  *  @param arr
  */
-export function unique<T>(arr: T[]): T[] {
+export function unique<T>(arr: T[] | NullOrUndefined): T[] {
   return Array.from(new Set(arr));
 }
 

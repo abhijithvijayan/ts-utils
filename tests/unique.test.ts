@@ -16,4 +16,12 @@ describe('Tests for unique()', () => {
   it('should return unchanged array of empty arrays', () => {
     expect(unique([[], []])).toEqual([[], []]);
   });
+
+  it('should return undefined for undefined', () => {
+    expect(unique(undefined)).toEqual(undefined);
+  });
+
+  it('should return undefined for null', () => {
+    expect(unique(null)).toEqual(undefined);
+  });
 });
