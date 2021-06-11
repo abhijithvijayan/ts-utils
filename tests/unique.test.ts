@@ -18,10 +18,10 @@ describe('Tests for unique()', () => {
   });
 
   it('should return undefined for undefined', () => {
-    expect(unique(undefined)).toEqual(undefined);
+    expect(unique(undefined)).toEqual([]);
   });
 
   it('should return undefined for null', () => {
-    expect(unique(null)).toEqual(undefined);
+    expect(unique(null)).toEqual([]);
   });
 });
