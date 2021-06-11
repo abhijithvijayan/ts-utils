@@ -105,4 +105,41 @@ describe('get tests', () => {
 
     return expect(state).toEqual('test');
   });
+
+  it('should return null value', () => {
+    const state = get(
+      {
+        test: {
+          testing: null,
+        },
+      },
+      'test.testing'
+    );
+
+    return expect(state).toEqual(null);
+  });
+
+  it('should return undefined value', () => {
+    const state = get(
+      {
+        test: {
+          testing: undefined,
+        },
+      },
+      'test.testing'
+    );
+
+    return expect(state).toEqual(undefined);
+  });
+
+  it('should return passed object as such for invalid selector', () => {
+    const obj = {
+      test: {
+        testing: 'hello world',
+      },
+    };
+    const state = get(obj, null);
+
+    return expect(state).toEqual(obj);
+  });
 });

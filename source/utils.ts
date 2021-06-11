@@ -354,16 +354,21 @@ export function pipe(...fns: AnyFunction[]): AnyFunction {
  */
 export function get<T, P = undefined>(
   from: T,
-  selector = EMPTY_STRING,
+  selector?: string | NullOrUndefined,
   defaultValue: P | undefined = undefined
 ): P {
-  return (
-    selector
-      .replace(/\[([^[\]]*)]/g, '.$1.')
-      .split('.')
-      .filter((t) => t !== EMPTY_STRING)
-      .reduce<any>((prev, curr) => prev && prev[curr], from) || defaultValue
-  );
+  if (isNullOrUndefined(from)) {
+    return defaultValue as P;
+  }
+
+  const validSelector = selector ?? EMPTY_STRING;
+  const value = validSelector
+    .replace(/\[([^[\]]*)]/g, '.$1.')
+    .split('.')
+    .filter((t) => t !== EMPTY_STRING)
+    .reduce<any>((prev, curr) => prev && prev[curr], from);
+
+  return !isUndefined(value) ? value : defaultValue;
 }
 
 /**
