@@ -119,9 +119,9 @@ export function capitalize(
  *
  *  eg: toCamelCase("some-javascript-property"); // 'someJavascriptProperty'
  */
-export function toCamelCase(str: string): string {
+export function toCamelCase(str?: string | NullOrUndefined): string {
   const s =
-    str
+    (str ?? EMPTY_STRING)
       .match(
         /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
       )
