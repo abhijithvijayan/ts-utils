@@ -36,4 +36,5 @@ export {
   objectToQueryParams,
   isBrowser,
   isEmail,
+  tryCatch,
 } from './utils';

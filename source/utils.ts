@@ -3,6 +3,14 @@ export type NullOrUndefined = null | undefined;
 export type AnyObject = Record<string, any>;
 export const EMPTY_STRING = '';
 
+export enum FnExecStatus {
+  FULFILLED = 'fulfilled',
+  REJECTED = 'rejected',
+}
+export enum Messages {
+  TypeError = 'Passed argument is not a function',
+}
+
 /**
  *  RFC2822 Validation
  *
@@ -542,4 +550,38 @@ export function isEmail(str: string | NullOrUndefined): boolean {
   const re = new RegExp(`^(${formatRegexToString(EMAIL_REGEX)})$`);
 
   return !!str && re.test(str);
+}
+
+/**
+ *  Try-Catch Wrapper
+ */
+export function tryCatch<T>(fn: AnyFunction<T> | NullOrUndefined): (
+  this: unknown,
+  ...args: any[]
+) =>
+  | {
+      status: FnExecStatus.FULFILLED;
+      value: ReturnType<NonNullable<typeof fn>>;
+    }
+  | {
+      status: FnExecStatus.REJECTED;
+      reason: Error;
+    } {
+  return function invoker(this, ...args) {
+    try {
+      if (!isFunction(fn)) {
+        throw Messages.TypeError;
+      }
+
+      return {
+        status: FnExecStatus.FULFILLED,
+        value: fn.apply(this, args),
+      };
+    } catch (err) {
+      return {
+        status: FnExecStatus.REJECTED,
+        reason: err instanceof Error ? err : new Error(err),
+      };
+    }
+  };
 }
