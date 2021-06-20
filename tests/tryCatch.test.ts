@@ -1,4 +1,4 @@
-import {FnExecStatus, Messages} from '../source/utils';
+import {FnExecStatus, Messages, NullOrUndefined} from '../source/utils';
 import {tryCatch} from '../source';
 
 describe('Tests for tryCatch()', () => {
@@ -24,7 +24,7 @@ describe('Tests for tryCatch()', () => {
     });
   });
 
-  test('should expect fulfilled and rejected states ', () => {
+  test('should expect fulfilled and rejected states', () => {
     const ok = (arg1: string, arg2: string): string => {
       return `${arg1}-${arg2}`;
     };
@@ -65,5 +65,92 @@ describe('Tests for tryCatch()', () => {
       status: FnExecStatus.FULFILLED,
       value: undefined,
     });
+  });
+
+  test('should expect fulfilled and rejected states for JSON.parse() method', () => {
+    let json: string | NullOrUndefined = '';
+    const fn = (str: typeof json) =>
+      tryCatch(JSON.parse.bind(null, str as unknown as string)); // manual override for JSON.parse(undefined)
+
+    expect(
+      (() => {
+        json = '{ "age": 30 }';
+
+        return fn(json)();
+      })()
+    ).toEqual({
+      status: FnExecStatus.FULFILLED,
+      value: expect.objectContaining({
+        age: 30,
+      }),
+    });
+
+    expect(
+      (() => {
+        json = '{ bad json o_O }"';
+
+        return fn(json)();
+      })()
+    ).toEqual({
+      status: FnExecStatus.REJECTED,
+      reason: expect.objectContaining({
+        message: 'Unexpected token b in JSON at position 2',
+      }),
+    });
+
+    expect(
+      (() => {
+        json = undefined;
+
+        return fn(json)();
+      })()
+    ).toEqual({
+      status: FnExecStatus.REJECTED,
+      reason: expect.objectContaining({
+        message: 'Unexpected token u in JSON at position 0',
+      }),
+    });
+
+    expect(
+      (() => {
+        json = '{}';
+
+        return fn(json)();
+      })()
+    ).toEqual({
+      status: FnExecStatus.FULFILLED,
+      value: {},
+    });
+  });
+
+  test('should expect proper values for series of synchronous actions', () => {
+    let log = '';
+
+    function doWork(): void {
+      log += 'W';
+    }
+
+    function doError(): void {
+      log += 'E';
+
+      throw new Error('oops!');
+    }
+
+    const fn = tryCatch(() => {
+      doWork();
+      doWork();
+      doError(); // will stop here
+      doWork();
+      doWork();
+    });
+
+    expect(fn()).toEqual({
+      status: FnExecStatus.REJECTED,
+      reason: expect.objectContaining({
+        message: 'oops!',
+      }),
+    });
+
+    expect(log).toBe('WWE');
   });
 });
