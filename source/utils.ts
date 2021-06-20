@@ -1,4 +1,4 @@
-export type AnyFunction = (...args: any[]) => any;
+export type AnyFunction<T = any> = (...args: any[]) => T;
 export type NullOrUndefined = null | undefined;
 export type AnyObject = Record<string, any>;
 export const EMPTY_STRING = '';
