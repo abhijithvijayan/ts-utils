@@ -214,6 +214,11 @@ import {isNull, get} from '@abhijithvijayan/ts-utils';
 	  }
 	  ```
 - `isBrowser()`: Determines if the current runtime environment is a browser
+- `isIP(str)`: Tests if input is an IP address
+	- Returns
+	  - `0` for invalid strings, // eg: `1.1.1.01`, `1::2::3`
+	  - `4` for IP version 4 addresses, // eg: `127.0.0.1`, `192.168.1.1`
+	  - `6` for IP version 6 addresses, // eg: `1::`, `ff02::1`, `1:2:3:4::6:7:8`
 
 ## Issues
 
