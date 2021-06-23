@@ -11,7 +11,7 @@ export enum Messages {
   TypeError = 'Passed argument is not a function',
 }
 
-function RegExpTest(re: RegExp, str: string): boolean {
+export function RegExpTest(re: RegExp, str: string): boolean {
   return re.test(str);
 }
 
@@ -593,11 +593,11 @@ export function tryCatch<T>(fn: AnyFunction<T> | NullOrUndefined): (
 // IPv4 Segment
 const v4Seg = '(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
 const v4Str = `(${v4Seg}[.]){3}${v4Seg}`;
-const IPv4Reg = new RegExp(`^${v4Str}$`);
+export const IPV4_REGEX = new RegExp(`^${v4Str}$`);
 
 // IPv6 Segment
 const v6Seg = '(?:[0-9a-fA-F]{1,4})';
-const IPv6Reg = new RegExp(
+export const IPV6_REGEX = new RegExp(
   '^(' +
     `(?:${v6Seg}:){7}(?:${v6Seg}|:)|` +
     `(?:${v6Seg}:){6}(?:${v4Str}|:${v6Seg}|:)|` +
@@ -611,11 +611,11 @@ const IPv6Reg = new RegExp(
 );
 
 function isIPv4(str: string | NullOrUndefined): boolean {
-  return RegExpTest(IPv4Reg, str ?? EMPTY_STRING);
+  return RegExpTest(IPV4_REGEX, str ?? EMPTY_STRING);
 }
 
 function isIPv6(str: string | NullOrUndefined): boolean {
-  return RegExpTest(IPv6Reg, str ?? EMPTY_STRING);
+  return RegExpTest(IPV6_REGEX, str ?? EMPTY_STRING);
 }
 
 /**
