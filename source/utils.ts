@@ -11,6 +11,10 @@ export enum Messages {
   TypeError = 'Passed argument is not a function',
 }
 
+function RegExpTest(re: RegExp, str: string): boolean {
+  return re.test(str);
+}
+
 /**
  *  RFC2822 Validation
  *
@@ -549,7 +553,7 @@ export function isEmail(str: string | NullOrUndefined): boolean {
   // https://regex101.com/r/857lzc/1/
   const re = new RegExp(`^(${formatRegexToString(EMAIL_REGEX)})$`);
 
-  return !!str && re.test(str);
+  return !!str && RegExpTest(re, str);
 }
 
 /**
