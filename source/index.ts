@@ -37,4 +37,5 @@ export {
   isBrowser,
   isEmail,
   tryCatch,
+  isIP,
 } from './utils';
