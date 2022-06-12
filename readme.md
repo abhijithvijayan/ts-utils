@@ -7,7 +7,6 @@
   <a href="https://travis-ci.com/abhijithvijayan/ts-utils">
     <img src="https://travis-ci.com/abhijithvijayan/ts-utils.svg?branch=main" alt="Travis Build" />
   </a>
-  </a>
   <a href="https://david-dm.org/abhijithvijayan/ts-utils">
     <img src="https://img.shields.io/david/abhijithvijayan/ts-utils.svg?colorB=orange" alt="DEPENDENCIES" />
   </a>
